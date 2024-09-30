@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class SoccerPlayer {
     /*
        Task:
@@ -78,5 +80,16 @@ public class SoccerPlayer {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SoccerPlayer that = (SoccerPlayer) o;
+        return scoredGoals == that.scoredGoals && Objects.equals(team, that.team);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(team, scoredGoals);
+    }
 }
